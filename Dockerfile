@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y python-dev \
     libsmi2-dev libffi-dev cmake pkg-config libtiff-dev \
     unzip libtbb-dev libjasper-dev libtbb2 libpng-dev \
     libjpeg-dev libswscale-dev qt5-default libqt5svg5-dev \
-    qtcreator wget
+    qtcreator wget locate
 
 RUN cd \
   && wget https://github.com/opencv/opencv/archive/2.4.11.zip \
@@ -19,6 +19,8 @@ RUN cd \
 	&& make install \
 	&& cd \
 	&& rm 2.4.11.zip
+
+RUN apt-get install -y python-opencv
 
 RUN cd \
   && git clone https://github.com/biometrics/openbr.git \
@@ -34,3 +36,5 @@ RUN cd \
 
 RUN mkdir /images
 ADD ./images /images
+WORKDIR /root/openbr
+RUN updatedb
