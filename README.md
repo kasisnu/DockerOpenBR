@@ -5,9 +5,11 @@ Dockerized implementation of OpenBR, a communal biometrics framework.
 Usage
 -----
 
-docker run avelkoski/openbr:latest bash -c "br -algorithm AgeEstimation -enroll /images/bush1.jpeg meta.csv &> /dev/null && cat meta.csv"
+````
+docker run --rm -it -v$(pwd):/app kasisnu/openbr bash
 
-Team
-----
+````
 
-[![EthVentures](https://github.com/EthVentures/CryptoTracker/raw/master/resources/img/ethventures-logo.png)](https://ethventures.io)
+See also
+--------
+https://kasisnu.com/posts/openbr-development-container/
